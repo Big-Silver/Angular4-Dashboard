@@ -1,0 +1,333 @@
+
+<ni-breadcrumb [menu]="breadcrumb" [style]="'custom2'" class="mb-4"></ni-breadcrumb>
+<md-tab-group>
+  <md-tab>
+    <ng-template md-tab-label>
+      {{'Identification' | translate}}
+    </ng-template>
+    <div class="row p-2">
+      <div class="col-md-12 mb-3">
+        <md-card class="example-card mt-3">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group row">
+                <label class="col-sm-6 col-md-4 col-form-label mb-0">{{'First Name' | translate}}:</label>
+                <div class="col-sm-6 col-md-8">
+                  <md-input-container class="mb-0">
+                    <input mdInput type="text" value="">
+                  </md-input-container>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group row">
+                <label class="col-sm-6 col-md-4 col-form-label mb-0">{{'Middle Name' | translate}}:</label>
+                <div class="col-sm-6 col-md-8">
+                  <md-input-container class="mb-0">
+                    <input mdInput type="text" value="">
+                  </md-input-container>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group row">
+                <label class="col-sm-6 col-md-4 col-form-label mb-0">{{'Surname' | translate}}:</label>
+                <div class="col-sm-6 col-md-8">
+                  <md-input-container class="mb-0">
+                    <input mdInput type="text" value="">
+                  </md-input-container>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group row">
+                <label class="col-sm-6 col-md-4 col-form-label mb-0">{{'Gender' | translate}}:</label>
+                <div class="col-sm-6 col-md-8">
+                  <md-select class="w-full" [(ngModel)]="gender">
+                    <md-option>{{'Male' | translate}}</md-option>
+                    <md-option>{{'Female' | translate}}</md-option>
+                  </md-select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group row">
+                <label class="col-sm-6 col-md-4 col-form-label mb-0">{{'Password' | translate}}:</label>
+                <div class="col-sm-6 col-md-8">
+                  <md-input-container class="mb-0">
+                    <input mdInput type="password">
+                  </md-input-container>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group row">
+                <label class="col-sm-6 col-md-4 col-form-label mb-0">{{'Password verification' | translate}}:</label>
+                <div class="col-sm-6 col-md-8">
+                  <md-input-container class="mb-0">
+                    <input mdInput type="password">
+                  </md-input-container>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group row">
+                <label class="col-sm-6 col-md-4 col-form-label mb-0">{{'Email' | translate}}:</label>
+                <div class="col-sm-6 col-md-8">
+                  <md-input-container class="mb-0">
+                    <input mdInput type="email">
+                  </md-input-container>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group row">
+                <label class="col-sm-6 col-md-4 col-form-label mb-0">{{'Photo' | translate}}:</label>
+                <div class="col-sm-6 col-md-8">
+                  <!-- <md-input-container class="mb-0"> -->
+                    <input type="file">
+                  <!-- </md-input-container> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group row">
+                <label class="col-sm-6 col-md-4 col-form-label mb-0">{{'Date of Birth'}}:</label>
+                <div class="col-sm-6 col-md-8">
+                  <md-input-container class="mb-0">
+                    <input mdInput type="text" [mdDatepicker]="picker">
+                    <button mdSuffix [mdDatepickerToggle]="picker"></button>
+                  </md-input-container>
+                  <md-datepicker #picker></md-datepicker>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group row">
+                <label class="col-sm-6 col-md-4 col-form-label mb-0">{{'Country of Birth' | translate}}:</label>
+                <div class="col-sm-6 col-md-8">
+                  <md-input-container class="mb-0">
+                    <input mdInput type="text">
+                  </md-input-container>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group row">
+                <label class="col-sm-6 col-md-4 col-form-label mb-0">{{'State of Birth' | translate}}:</label>
+                <div class="col-sm-6 col-md-8">
+                  <md-input-container class="mb-0">
+                    <input mdInput type="text">
+                  </md-input-container>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group row">
+                <label class="col-sm-6 col-md-4 col-form-label mb-0">{{'Town of Birth' | translate}}:</label>
+                <div class="col-sm-6 col-md-8">
+                  <md-input-container class="mb-0">
+                    <input mdInput type="text">
+                  </md-input-container>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-6 col-md-4 col-form-label mb-0">{{'Account validation status' | translate}}:</label>
+            <div class="col-sm-6 col-md-8">
+              <p></p>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-6 col-md-4 col-form-label mb-0">{{'Account validation start date' | translate}}:</label>
+            <div class="col-sm-6 col-md-8">
+              <p></p>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-6 col-md-4 col-form-label mb-0">{{'Account validation end date' | translate}}:</label>
+            <div class="col-sm-6 col-md-8">
+              <p></p>
+            </div>
+          </div>
+        </md-card>
+        <button md-raised-button color="primary" (click)="validate()" class="mt-3">{{'Validate' | translate}}</button>
+      </div>
+    </div>
+  </md-tab>
+  <md-tab>
+    <ng-template md-tab-label>
+      {{'Address and occupation' | translate}}
+    </ng-template>
+    <div class="row p-2">
+      <div class="col-md-12 mb-3">
+        <md-card class="mt-3">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group row">
+                <label class="col-sm-6 col-md-4 col-form-label mb-0">{{'Address number' | translate}}:</label>
+                <div class="col-sm-6 col-md-8">
+                  <md-input-container class="mb-0">
+                    <input mdInput type="text">
+                  </md-input-container>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group row">
+                <label class="col-sm-6 col-md-4 col-form-label mb-0">{{'Address street name' | translate}}:</label>
+                <div class="col-sm-6 col-md-8">
+                  <md-input-container class="mb-0">
+                    <input mdInput type="text">
+                  </md-input-container>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group row">
+                <label class="col-sm-6 col-md-4 col-form-label mb-0">{{'Address post code' | translate}}:</label>
+                <div class="col-sm-6 col-md-8">
+                  <md-input-container class="mb-0">
+                    <input mdInput type="text">
+                  </md-input-container>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group row">
+                <label class="col-sm-6 col-md-4 col-form-label mb-0">{{'Address town' | translate}}:</label>
+                <div class="col-sm-6 col-md-8">
+                  <md-input-container class="mb-0">
+                    <input mdInput type="text">
+                  </md-input-container>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group row">
+                <label class="col-sm-6 col-md-4 col-form-label mb-0">{{'Address state' | translate}}:</label>
+                <div class="col-sm-6 col-md-8">
+                  <md-input-container class="mb-0">
+                    <input mdInput type="text">
+                  </md-input-container>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group row">
+                <label class="col-sm-6 col-md-4 col-form-label mb-0">{{'Address country' | translate}}:</label>
+                <div class="col-sm-6 col-md-8">
+                  <md-input-container class="mb-0">
+                    <input mdInput type="text">
+                  </md-input-container>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group row">
+                <label class="col-sm-6 col-md-4 col-form-label mb-0">{{'Address extra info' | translate}}:</label>
+                <div class="col-sm-6 col-md-8">
+                  <md-input-container class="mb-0">
+                    <input mdInput type="text">
+                  </md-input-container>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group row">
+                <label class="col-sm-6 col-md-4 col-form-label mb-0">{{'Contact home phone' | translate}}:</label>
+                <div class="col-sm-6 col-md-8">
+                  <md-input-container class="mb-0">
+                    <input mdInput type="text">
+                  </md-input-container>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group row">
+                <label class="col-sm-6 col-md-4 col-form-label mb-0">{{'Contact office phone' | translate}}:</label>
+                <div class="col-sm-6 col-md-8">
+                  <md-input-container class="mb-0">
+                    <input mdInput type="text">
+                  </md-input-container>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group row">
+                <label class="col-sm-6 col-md-4 col-form-label mb-0">{{'Contact mobile phone' | translate}}:</label>
+                <div class="col-sm-6 col-md-8">
+                  <md-input-container class="mb-0">
+                    <input mdInput type="text">
+                  </md-input-container>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group row">
+                <label class="col-sm-6 col-md-4 col-form-label mb-0">{{'Occupation' | translate}}:</label>
+                <div class="col-sm-6 col-md-8">
+                  <md-input-container class="mb-0">
+                    <input mdInput type="text">
+                  </md-input-container>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group row">
+                <label class="col-sm-6 col-md-4 col-form-label mb-0">{{'Occupation sector' | translate}}:</label>
+                <div class="col-sm-6 col-md-8">
+                  <md-input-container class="mb-0">
+                    <input mdInput type="text">
+                  </md-input-container>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group row">
+                <label class="col-sm-6 col-md-4 col-form-label mb-0">{{'Yearly income' | translate}}:</label>
+                <div class="col-sm-6 col-md-8">
+                  <md-input-container class="mb-0">
+                    <input mdInput type="text">
+                  </md-input-container>
+                </div>
+              </div>
+            </div>
+          </div>
+        </md-card>
+        <button md-raised-button color="primary" class="mt-3" (click)="validate()">{{'Validate' | translate}}</button>
+      </div>
+    </div>
+  </md-tab>
+  <md-tab>
+    <ng-template md-tab-label>
+      {{'Payment means' | translate}}
+    </ng-template>
+    <div class="row p-2">
+      <div class="col-md-12 mb-3"></div>
+    </div>
+  </md-tab>
+</md-tab-group>

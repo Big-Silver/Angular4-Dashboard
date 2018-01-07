@@ -1,0 +1,43 @@
+<div
+  class="card-wrap"
+  [ngClass]="{
+    'success-card': bgColor === 'success',
+    'info-card': bgColor === 'info',
+    'warning-card': bgColor === 'warning',
+    'danger-card': bgColor === 'danger',
+    'success-color-card': color === 'success',
+    'info-color-card': color === 'info',
+    'warning-color-card': color === 'warning',
+    'danger-color-card': color === 'danger',
+    'bg-image-card': bgImage,
+    'outline-card': outline
+  }"
+  [ngStyle]="{
+   'background-color': customBgColor,
+   'background-image': 'url(' + bgImage + ')',
+   'border-color': customBgColor,
+   'color': customColor
+  }"
+>
+  <h3
+    class="card-header h5"
+    *ngIf="title"
+    [ngClass]="{
+      'text-right': align === 'right',
+      'text-center': align === 'center'
+    }"
+  ><span>{{title}} <md-icon *ngIf="info" mdTooltip="{{info}}" mdTooltipPosition="below">info</md-icon></span>
+    <md-icon *ngIf="refreshIndex !== 0 || showRefresh === true" class="btn-refresh" (click)="doRefresh(refreshIndex)">autorenew</md-icon>
+  </h3>
+
+  <div
+    class="card-content"
+    [ngClass]="{
+      'text-right': align === 'right',
+      'text-center': align === 'center'
+    }"
+    [ngStyle]="{'padding': indents}"
+  >
+    <ng-content></ng-content>
+  </div>
+</div>

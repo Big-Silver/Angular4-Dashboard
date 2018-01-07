@@ -1,0 +1,19 @@
+<div
+  class="alert"
+  [ngClass]="{
+    'success-alert': color === 'success',
+    'info-alert': color === 'info',
+    'warning-alert': color === 'warning',
+    'danger-alert': color === 'danger',
+    'outline-alert': outline,
+    'with-close': close
+  }"
+  [ngStyle]="{
+   'background': customColor,
+   'border-color': customColor
+  }"
+  #alert
+>
+  <ng-content></ng-content>
+  <a href="#" class="close" *ngIf="close" (click)="delete($event, alert)"><i class="material-icons">clear</i></a>
+</div>

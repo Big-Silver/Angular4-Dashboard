@@ -1,0 +1,24 @@
+<div class="chat-wrap">
+  <div class="dialog">
+
+    <div class="dialog-messages">
+      <div class="messages-list">
+        <div *ngFor="let message of messages" class="message" [ngClass]="{'my-message': message.my}">
+          <div class="message-content" [innerHtml]="message.content"></div>
+          <div class="avatar-div mt-2">
+            <div class="image-avatar"><img src="{{ message.avatar }}" alt="" width="30" height="30"></div>
+            <div class="message-date ml-3">{{ message.date }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form class="dialog-footer" #messageForm="ngForm" (ngSubmit)="onSubmit(messageForm)" (keydown.enter)="onSubmit(messageForm)">
+      <button class="btn load-file" (click)="loadFile($event); false"><i class="sli-paper-clip"></i></button>
+      <div class="message-box">
+        <textarea required ngModel class="enter-message" rows="1" name="message" placeholder="Write a message..."></textarea>
+      </div>
+      <button class="btn send-message" type="submit"><i class="sli-paper-plane"></i></button>
+    </form>
+  </div>
+</div>

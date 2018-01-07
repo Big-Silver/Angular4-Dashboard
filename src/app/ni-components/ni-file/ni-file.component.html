@@ -1,0 +1,38 @@
+<div
+  class="file"
+  [ngClass]="{
+    'doc-file': type === 'doc',
+    'xlx-file': type === 'xlx',
+    'pdf-file': type === 'pdf',
+    'archive-file': type === 'zip',
+    'audio-file': type === 'mp3',
+    'video-file': (type === 'mp4') || (type === 'webm') || (type === 'ogv'),
+    'image-file': (type === 'jpg') || (type === 'jpeg') || (type === 'png') || (type === 'gif'),
+    'size-small': size === 'small',
+    'size-large': size === 'large',
+    'spinner-file': spinner
+  }"
+>
+  <div class="file-prev">
+    <div class="icon" [ngStyle]="{'background-image': 'url('+image+')'}">
+      <i
+        class="fa"
+        [ngClass]="{
+          'fa-paperclip': type === '*',
+          'fa-file-word-o': type === 'doc',
+          'fa-file-excel-o': type === 'xlx',
+          'fa-file-pdf-o': type === 'pdf',
+          'fa-file-archive-o': type === 'zip',
+          'fa-file-audio-o': type === 'mp3',
+          'fa-file-video-o': (type === 'mp4') || (type === 'webm') || (type === 'ogv'),
+          'fa-file-image-o': (type === 'jpg') || (type === 'jpeg') || (type === 'png') || (type === 'gif')
+        }"
+        *ngIf="!image"
+        aria-hidden="true"
+      ></i>
+      <i class="material-icons delete" *ngIf="delete">clear</i>
+    </div>
+    <div class="spinner" *ngIf="spinner"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i></div>
+  </div>
+  <div class="file-name"><span class="name">{{title}}</span><span class="type">.{{type}}</span></div>
+</div>

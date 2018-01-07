@@ -1,0 +1,26 @@
+<ni-breadcrumb [menu]="breadcrumb" [style]="'custom2'" class="mb-4"></ni-breadcrumb>
+<div class="row">
+    <div class="col-lg-8">
+      <div class="row">
+        <div class="col-md-12">
+          <ni-card [title]="'request' | translate" [info]="'requestinfo' | translate" [refreshIndex]="1" (refresh)="doRefresh($event)">
+            <ni-table [headers]="userRequestHeader" [data]="userRequests" (showRequestDialog)="showDialog($event)"></ni-table>
+            <ni-alert *ngIf="userRequests.length === 0" [color]="'warning'" [outline]="true"><strong>{{'nopayment' | translate}}</strong></ni-alert>
+            <ni-pagination [totalItems]="totalRequest" [itemPerPage]="maxRequest" [currentPage]="pageRequest" *ngIf="userRequests.length > 0" (changePage)="changeRequestPage($event)"></ni-pagination>
+          </ni-card>
+        </div>
+        <div class="col-md-12">
+          <ni-card [title]="'nextpayment' | translate" [info]="'paymentinfo' | translate" [refreshIndex]="2" (refresh)="doRefresh($event)">
+            <ni-table [headers]="nextPaymentHeader" [data]="nextPayment"></ni-table>
+            <ni-alert *ngIf="nextPayment.length === 0" [color]="'warning'" [outline]="true"><strong>{{'nopayment' | translate}}</strong></ni-alert>
+            <ni-pagination [totalItems]="totalPayment" [itemPerPage]="maxPayment" [currentPage]="pagePayment" *ngIf="nextPayment.length > 0" (changePage)="changePaymentPage($event)"></ni-pagination>
+          </ni-card>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <ni-card [title]="'timeline' | translate" [info]="'timelineinfo' | translate" [refreshIndex]="3" (refresh)="doRefresh($event)">
+        <ni-h-timeline [showYears]="true" [showDate]="true" [align]="'between'" [data]="timelineData"></ni-h-timeline>
+      </ni-card>
+    </div>
+</div>

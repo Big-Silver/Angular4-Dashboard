@@ -1,0 +1,191 @@
+
+<ni-breadcrumb [menu]="breadcrumb" [style]="'custom2'" class="mb-4"></ni-breadcrumb>
+<div class="row">
+  <div class="col-lg-4">
+    <ni-card>
+      <div id="amchart-1" [style.width.%]="100" [style.height.px]="300"></div>
+    </ni-card>
+  </div>
+  <div class="col-lg-4">
+    <ni-card>
+      <div id="amchart-2" [style.width.%]="100" [style.height.px]="300"></div>
+    </ni-card>
+  </div>
+  <div class="col-lg-4">
+    <ni-card>
+      <div id="amchart-3" [style.width.%]="100" [style.height.px]="300"></div>
+    </ni-card>
+  </div>
+
+  <div class="col-xl-8">
+    <ni-card [title]="'What we doing'">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolor ducimus est excepturi illo itaque
+        modi quis repudiandae totam vitae. Accusamus beatae consectetur dolorum pariatur sapiente. Ad architecto at aut
+        et ex facilis fuga, laboriosam, magnam modi obcaecati officia officiis, omnis praesentium quam quas reiciendis
+        rerum ullam velit veritatis vitae.</p>
+
+      <div class="row">
+        <div class="col-md-6">
+          <p class="mb-1"><strong>Wordpress</strong></p>
+          <md-progress-bar mode="determinate" [value]="90"></md-progress-bar>
+
+          <p class="mb-1"><strong>Magento</strong></p>
+          <md-progress-bar mode="determinate" [value]="80"></md-progress-bar>
+
+          <p class="mb-1"><strong>Opencart</strong></p>
+          <md-progress-bar mode="determinate" [value]="60"></md-progress-bar>
+
+          <p class="mb-1"><strong>Drupal</strong></p>
+          <md-progress-bar mode="determinate" [value]="30"></md-progress-bar>
+          <div class="clearfix"></div>
+        </div>
+
+        <div class="col-md-6">
+          <p class="mb-1"><strong>Angular</strong></p>
+          <md-progress-bar mode="determinate" color="accent" [value]="98"></md-progress-bar>
+
+          <p class="mb-1"><strong>React</strong></p>
+          <md-progress-bar mode="determinate" color="accent" [value]="85"></md-progress-bar>
+
+          <p class="mb-1"><strong>Vue.js</strong></p>
+          <md-progress-bar mode="determinate" color="accent" [value]="40"></md-progress-bar>
+
+          <p class="mb-1"><strong>Backbone.js</strong></p>
+          <md-progress-bar mode="determinate" color="accent" [value]="38"></md-progress-bar>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam at corporis deleniti dicta doloremque
+        doloribus, ea ex excepturi fugiat labore minima possimus quia repellat similique soluta ut voluptate! Ad et hic
+        incidunt molestiae mollitia officiis omnis, perspiciatis quaerat qui quibusdam.</p>
+    </ni-card>
+  </div>
+  <div class="col-xl-4">
+    <ni-card [bgColor]="''" class="chart-card">
+      <div class="chart">
+        <canvas
+          baseChart
+          [data]="pieChartData"
+          [colors]="pieChartColors"
+          [labels]="pieChartLabels"
+          [legend]="false"
+          [options]="pieChartOptions"
+          [chartType]="pieChartType"></canvas>
+      </div>
+      <div class="info">
+        <div class="title"><strong>930</strong> <small>Resolved</small></div>
+        <div class="small">More than 70% resolved issues</div>
+      </div>
+    </ni-card>
+    <ni-card [bgColor]="''" class="chart-card">
+      <div class="chart">
+        <canvas
+          baseChart
+          [data]="doughnutChartData"
+          [colors]="doughnutChartColors"
+          [labels]="doughnutChartLabels"
+          [legend]="false"
+          [options]="doughnutChartOptions"
+          [chartType]="doughnutChartType"></canvas>
+      </div>
+      <div class="info">
+        <div class="title"><strong>466</strong> <small>Unresolved</small></div>
+        <div class="small">Less than 30% unresolved issues</div>
+      </div>
+    </ni-card>
+    <ni-card [bgColor]="''" class="chart-card">
+      <div class="chart">
+        <canvas
+          baseChart
+          [data]="polarAreaChartData"
+          [colors]="polarAreaChartColors"
+          [labels]="polarAreaChartLabels"
+          [legend]="false"
+          [options]="polarAreaChartOptions"
+          [chartType]="polarAreaChartType"></canvas>
+      </div>
+      <div class="info">
+        <div class="title"><strong>1,547</strong> <small>Issues</small></div>
+        <div class="small">8 issues are unassigned</div>
+      </div>
+    </ni-card>
+  </div>
+
+  <div class="col-md-4">
+    <ni-card [title]="'Recent activities'" [outline]="true" class="mb-md-0">
+      <ni-h-timeline [showYears]="false" [align]="'left'" [data]="timelineData"></ni-h-timeline>
+    </ni-card>
+  </div>
+  <div class="col-md-4">
+    <ni-card [title]="'Last sales'" class="mb-md-0">
+      <div class="table-responsive mb-3">
+        <table class="table table-sm">
+          <tbody>
+          <tr>
+            <td>Samsung Galaxy S8</td>
+            <td class="text-right">
+              <ni-badge [color]="'success'" [borderRadius]="false">1</ni-badge>
+            </td>
+          </tr>
+          <tr>
+            <td>Meizu M3</td>
+            <td class="text-right">
+              <ni-badge [color]="'success'" [borderRadius]="false">1</ni-badge>
+            </td>
+          </tr>
+          <tr>
+            <td>Meizu Pro 6</td>
+            <td class="text-right">
+              <ni-badge [color]="'info'" [borderRadius]="false">5</ni-badge>
+            </td>
+          </tr>
+          <tr>
+            <td>Apple iPhone SE</td>
+            <td class="text-right">
+              <ni-badge [color]="'warning'" [borderRadius]="false">7</ni-badge>
+            </td>
+          </tr>
+          <tr>
+            <td>iPhone 6</td>
+            <td class="text-right">
+              <ni-badge [color]="'success'" [borderRadius]="false">1</ni-badge>
+            </td>
+          </tr>
+          <tr>
+            <td>iPhone 7</td>
+            <td class="text-right">
+              <ni-badge [color]="'success'" [borderRadius]="false">1</ni-badge>
+            </td>
+          </tr>
+          <tr>
+            <td>Huawei P8</td>
+            <td class="text-right">
+              <ni-badge [color]="'info'" [borderRadius]="false">4</ni-badge>
+            </td>
+          </tr>
+          <tr>
+            <td>Ipad Mini</td>
+            <td class="text-right">
+              <ni-badge [color]="'info'" [borderRadius]="false">15</ni-badge>
+            </td>
+          </tr>
+          <tr>
+            <td>Ipad Pro</td>
+            <td class="text-right">
+              <ni-badge [color]="'success'" [borderRadius]="false">6</ni-badge>
+            </td>
+          </tr>
+          <tr>
+            <td>Xiaomi Mi Band 2</td>
+            <td class="text-right">
+              <ni-badge [color]="'danger'" [borderRadius]="false">10</ni-badge>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <button ni-button block="true" type="accent" outline="true" lineStyle="dashed" beforeIcon="fa fa-shopping-basket">Look all</button>
+    </ni-card>
+  </div>
+</div>

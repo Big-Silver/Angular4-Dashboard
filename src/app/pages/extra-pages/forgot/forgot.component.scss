@@ -1,0 +1,36 @@
+@import '../../../../assets/sass/variable';
+
+:host {
+  background: main-color(300);
+  display: table-cell;
+  height: 100%;
+  vertical-align: middle;
+  width: 100%;
+
+  .ni-card {
+    margin: 0 auto;
+    max-width: 400px;
+
+    /deep/ .card-wrap {
+      border: 0;
+    }
+    form {
+      button {
+        width: 100%;
+      }
+      .additional-info {
+        background: rgba(#000,.1);
+        margin: $module-rem * 2 (-($module-rem * 2)) (-($module-rem * 2));
+        padding: $module-rem $module-rem * 2;
+
+        .divider {
+          border-left: 1px solid rgba(#000,.2);
+          display: inline-block;
+          height: 18px;
+          margin: 0 10px;
+          vertical-align: bottom;
+        }
+      }
+    }
+  }
+}

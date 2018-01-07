@@ -1,0 +1,31 @@
+@import '../../../../assets/sass/variable';
+
+:host {
+  /deep/.ni-h-timeline {
+    .timeline-box {
+      .box-items {
+        .item {
+          margin: $module-rem 0 !important;
+          padding-left: 30px !important;
+
+          .item-content {
+            padding: $module-rem !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.members-header {
+  align-items: center;
+}
+
+.search-group {
+  width: 150px;
+}
+
+label md-icon {
+  height: 40px !important;
+  vertical-align: sub;
+}

@@ -1,0 +1,14 @@
+<div class="row members-header">
+  <div class="col-sm-6">
+    <ni-breadcrumb [menu]="breadcrumb" [style]="'custom2'" class="mb-4"></ni-breadcrumb>      
+  </div>
+  <div class="col-sm-6 text-right">
+    <md-input-container class="search-group md-icon-left">
+      <md-icon>search</md-icon>
+      <input mdInput value="">
+    </md-input-container>
+  </div>
+  <div class="col-md-12">
+    <ni-chat [messages]="messages" [style.height.px]="600"></ni-chat>
+  </div>
+</div>

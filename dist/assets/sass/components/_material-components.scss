@@ -1,0 +1,231 @@
+body {
+  .mat-button-toggle,
+  %mat-button-base,
+  .mat-button,
+  .mat-raised-button,
+  .mat-fab,
+  .mat-icon-button,
+  .mat-mini-fab,
+  .mat-card,
+  .mat-checkbox,
+  .mat-input-container,
+  .mat-list,
+  .mat-menu-item,
+  .mat-radio-button,
+  .mat-select,
+  .mat-list .mat-list-item .mat-list-item-content,
+  .mat-nav-list .mat-list-item .mat-list-item-content,
+  .mat-simple-snackbar,
+  .mat-tab-label,
+  .mat-slide-toggle-content,
+  .mat-toolbar,
+  .mat-tooltip,
+  .mat-option,
+  .mat-list .mat-subheader,
+  .mat-nav-list .mat-subheader {
+    font-family: $main-ff !important;
+  }
+  [md-button],
+  [md-fab],
+  [md-icon-button],
+  [md-mini-fab],
+  [md-raised-button] {
+    font-weight: inherit;
+  }
+  .md-button-toggle-label {
+    margin-bottom: 0;
+  }
+
+  .mat-card {
+    .mat-card-header {
+      margin-bottom: $module;
+    }
+  }
+  [md-card-avatar] {
+    overflow: hidden;
+  }
+  .mat-card-image {
+    max-width: none;
+  }
+  .mat-card-title {
+    margin-bottom: .5rem;
+  }
+  .mat-card-subtitle {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .mat-input-container {
+    margin: 0 0 $module;
+    width: 100%;
+
+    &.md-icon-left {
+      padding-left: 36px;
+      position: relative;
+
+      .mat-input-infix {
+        > .mat-icon {
+          font-size: 24px;
+          left: -32px;
+          position: absolute;
+          right: auto;
+          top: 6px;
+        }
+      }
+      .mat-input-underline {
+        left: 0;
+        right: 0;
+        width: auto;
+      }
+    }
+    .mat-input-wrapper {
+      margin: 0;
+      padding: 0;
+
+      .mat-input-flex {
+        .mat-input-prefix {
+          span {
+            padding-right: 11px;
+          }
+        }
+
+        .mat-input-suffix {
+          span {
+            padding-left: 11px;
+          }
+        }
+      }
+      .mat-input-underline {
+        bottom: 0;
+        margin: 0;
+      }
+    }
+    .mat-input-subscript-wrapper {
+      margin-top: 0;
+    }
+  }
+
+  .mat-list {
+    .mat-list-item {
+      color: inherit;
+
+      .mat-list-item-content {
+        padding: 0 !important;
+
+        .mat-icon.mat-list-avatar {
+          font-size: 40px;
+        }
+        h1, h2, h3, h4, h5, h6 {
+          font-weight: $headers-fw;
+          line-height: 1.3;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+
+  md-progress-bar,
+  md-progress-circle,
+  md-spinner {
+    margin-bottom: $module;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .mat-radio-group {
+    display: block;
+    margin: 0 -11px $module;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .mat-radio-button {
+      margin: 0 11px;
+
+      .mat-radio-label {
+        margin: 0;
+      }
+    }
+  }
+  .column-layout {
+    .mat-radio-button {
+      display: block;
+      margin-bottom: $module;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .mat-checkbox {
+    display: inline-block;
+    margin-bottom: $module;
+    vertical-align: top;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .mat-checkbox-layout {
+    margin-bottom: 0;
+  }
+
+  .mat-option {
+    font-size: inherit !important;
+  }
+
+  .mat-tab-label {
+    .mat-icon {
+      vertical-align: middle;
+    }
+  }
+  .mat-tab-body-content {
+    overflow: auto;
+  }
+  .mat-icon {
+    position: relative;
+  }
+  .sb-item-head {
+    font-weight: $headers-fw;
+  }
+  .squeezebox {
+    .sb-item {
+      .sb-item-head {
+        a {
+          color: rgba(main-contrast(500),.8);
+
+          .toggle-icon {
+            height: 22px;
+            width: 22px;
+
+            &:before,
+            &:after {
+              background: main-contrast(500);
+            }
+          }
+          &:hover,
+          &:focus {
+            color: main-contrast(500);
+          }
+        }
+      }
+    }
+  }
+  .mat-input-invalid {
+    .mat-input-placeholder {
+      color: $error-color;
+    }
+    .mat-input-ripple {
+      background-color: $error-color;
+    }
+  }
+}
+.rtl {
+  .squeezebox .sb-item .sb-item-head a .toggle-icon {
+    float: left;
+  }
+}

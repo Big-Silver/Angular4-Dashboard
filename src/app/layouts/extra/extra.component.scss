@@ -1,0 +1,14 @@
+@import '../../../assets/sass/variable';
+
+:host {
+  .main-content {
+    height: 100%;
+    padding: 0;
+
+    .main-content-wrap {
+      height: 100%;
+      padding: 0;
+      width: 100%;
+    }
+  }
+}

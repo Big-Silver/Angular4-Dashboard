@@ -1,0 +1,19 @@
+<h2 md-dialog-title>Start Group</h2>
+<div md-dialog-content *ngIf="!isPendingRequest">
+  <md-input-container class="mb-0">
+    <input mdInput type="text" [mdDatepicker]="picker" [(ngModel)]="date">
+    <button mdSuffix [mdDatepickerToggle]="picker"></button>
+  </md-input-container>
+  <md-datepicker #picker></md-datepicker>
+  <div md-dialog-actions>
+    <button md-raised-button (click)="dialogRef.close('no')" color="default">Cancel</button>
+    <button md-raised-button (click)="start()" color="primary">Start</button>
+  </div>
+</div>
+<div md-dialog-content *ngIf="isPendingRequest">
+  <p>There is {{pendingRequest}} pending request, do you want to start anyway ?</p>
+  <div md-dialog-actions>
+    <button md-raised-button (click)="dialogRef.close('no')" color="default">Cancel</button>
+    <button md-raised-button (click)="forceStart()" color="primary">Force Start</button>
+  </div>
+</div>

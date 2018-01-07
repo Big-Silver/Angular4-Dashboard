@@ -1,0 +1,113 @@
+@import '../../../assets/sass/variable';
+
+:host {
+  display: block;
+  margin: 0 0 ($module-rem * 2);
+
+  .card-wrap {
+    background-color: #fff;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 1px solid $card-header-bg;
+    border-radius: 3px;
+    box-shadow: 1px 1px 5px 0px rgba(main-color(500),.25);
+    position: relative;
+
+    &:not(.outline-card) {
+      border: 0 !important;
+    }
+    .card-header {
+      background: $card-header-bg;
+      border-radius: 3px 3px 0 0;
+      color: $card-header-color;
+      display: flex;
+      justify-content: space-between;
+      margin: 0;
+      padding: $module-rem $module-rem * 2;
+      position: relative;
+
+      span {
+        display: flex;
+        align-items: center;
+      }
+
+      md-icon {
+        margin-left: 10px;
+      }
+
+      + .card-content {
+        border-radius: 0 0 3px 3px;
+      }
+    }
+    .card-content {
+      border-radius: 3px;
+      display: block;
+      padding: $module-rem * 2;
+      position: relative;
+    }
+    &.success-card {
+      background: $success-color;
+      border-color: $success-color;
+
+      &:not(.outline-card) {
+        color: #fff;
+      }
+    }
+    &.info-card {
+      background: $info-color;
+      border-color: $info-color;
+
+      &:not(.outline-card) {
+        color: #fff;
+      }
+    }
+    &.warning-card {
+      background: $warning-color;
+      border-color: $warning-color;
+
+      &:not(.outline-card) {
+        color: #fff;
+      }
+    }
+    &.danger-card {
+      background: $error-color;
+      border-color: $error-color;
+
+      &:not(.outline-card) {
+        color: #fff;
+      }
+    }
+    &.success-color-card {
+      color: $success-color;
+    }
+    &.info-color-card {
+      color: $info-color;
+    }
+    &.warning-color-card {
+      color: $warning-color;
+    }
+    &.danger-color-card {
+      color: $error-color;
+    }
+    &.outline-card {
+      background: none !important;
+      box-shadow: none !important;
+    }
+    &.bg-image-card {
+      border: none !important;
+
+      &:before {
+        background-color: inherit;
+        border-radius: 3px;
+        content: '';
+        display: block;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+    }
+  }
+}

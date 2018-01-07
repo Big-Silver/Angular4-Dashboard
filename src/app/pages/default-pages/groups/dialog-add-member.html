@@ -1,0 +1,10 @@
+<h2 md-dialog-title>Add member</h2>
+<div md-dialog-content>
+  <md-input-container>
+    <input mdInput placeholder="Member to add" value="" [(ngModel)]="member">
+  </md-input-container>
+  <div md-dialog-actions>
+    <button md-raised-button (click)="dialogRef.close('no')" color="default">CANCEL</button>
+    <button md-raised-button (click)="addMember()" color="primary" [disabled]="member === ''">Add</button>
+  </div>
+</div>

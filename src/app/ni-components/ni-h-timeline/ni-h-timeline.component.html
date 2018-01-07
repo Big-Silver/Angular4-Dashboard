@@ -1,0 +1,18 @@
+<span class="line"></span>
+
+<div class="timeline-box" *ngFor="let box of data">
+  <div class="box-label" *ngIf="showYears && box.label">
+    <div class="label-text">{{ box.label }}</div>
+  </div>
+
+  <div class="box-items">
+    <div class="item" *ngFor="let item of box.timeline">
+      <div class="item-point" [ngStyle]="{ 'border-color': item.pointColor }"></div>
+      <div class="item-date" *ngIf="showDate && item.date"><span>{{ item.date }}</span></div>
+      <div class="item-content">
+        <h2 class="h6 item-title" *ngIf="item.title">{{ item.title | translate }}</h2>
+        <div class="item-desc" [innerHTML]="item.content | translate"></div>
+      </div>
+    </div>
+  </div>
+</div>

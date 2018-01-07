@@ -1,0 +1,27 @@
+<h2 md-dialog-title>{{'request' | translate}}</h2>
+<div class="request-dialog">
+  <div md-dialog-content>
+    <p>You have received a request to <span>{{request.request_type_text}}</span> from <span>{{request.sender}}</span> on <span>{{request.request_date}}</span>.</p>
+    <p *ngIf="request.request_type == 'REQUEST_FOR_OTHER_PAYMENT'">The admin of the group has requested the amount to be pay is <span>{{request.payment_amount}} {{request.currency}}</span>.</p>
+    <md-select [placeholder]="'Select your position in the group' | translate" *ngIf="request.request_type == 'START_AND_SELECT_POSTION_GROUP' && (request.group_rotation_type == 'FIRST_ARRIVED_FIRST_SERVED' || request.group_rotation_type == 'PRIORITY_BASED_ON_INDEX_CREDIT')">
+      <md-option *ngFor="let p of positions" [value]="p.code">{{p.value}}</md-option>
+    </md-select>
+    <p *ngIf="request.request_type == 'REQUEST_FOR_OTHER_PAYMENT' || request.request_type == 'START_AND_SELECT_POSTION_GROUP'">
+      You will join a <span>{{request.g_type}}</span> Rolling Group named <span>{{request.group}}</span>
+    </p>
+    <p *ngIf="request.rate > 0">and the amount due will be <span>{{request.amount}} {{request.currency}}</span> with <span>{{request.rate}}</span> % interest applied.</p>
+    <p *ngIf="request.rate == 0">and the amount due will be <span>{{request.amount}} {{request.currency}}</span>.</p>
+    <p *ngIf="request.frequency == 1">This payment will have to be made at latest on <span>{{request.due_day}}</span> each month.</p>
+    <p *ngIf="request.frequency > 1">This payment will have to be made at latest on <span>{{request.due_day}}</span> every <span>{{request.frequency}}</span> month.</p>
+    <p *ngIf="request.delay_payment_penalty > 0 && request.nb_days_delay_before_penalty > 0">After a payment delay of <span>{{request.nb_days_delay_before_penalty}}</span> days, a penalty of <span>{{request.delay_payment_penalty}}</span> % will apply.</p>
+    <p *ngIf="request.g_type_code == 'PRIVATE' && request.smooth_payment == '1' && request.rate > 0">The total payment (amount + interest) to pay will be smoothed.</p>
+    <p *ngIf="request.frequency == 1">This will allow you to pay a single amount every month.</p>
+    <p *ngIf="request.frequency > 1">This will allow you to pay a single amount every <span>{{request.frequency}}</span> months.</p>
+    <p>When the group is kicked off, the members will select their position using <span>{{request.group_rotation_type_text}}</span> method.</p>
+    <div md-dialog-actions>
+      <button mdTooltip="{{'Click here to accept the request' | translate}}" mdTooltipPosition="below" md-raised-button (click)="answer('APPROVE')" color="primary">{{'Accept' | translate}}</button>
+      <button mdTooltip="{{'Click here to reject the request' | translate}}" mdTooltipPosition="below" md-raised-button (click)="answer('REJECT')" color="primary">{{'Reject' | translate}}</button>
+      <button mdTooltip="{{'Click here to close the window without any change' | translate}}" mdTooltipPosition="below" md-raised-button (click)="dialogRef.close('no')" color="default">{{'Cancel' | translate}}</button>
+    </div>
+  </div>
+</div>

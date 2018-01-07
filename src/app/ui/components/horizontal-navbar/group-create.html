@@ -1,0 +1,130 @@
+<h2 md-dialog-title>{{'groupcreation' | translate}}</h2>
+<form [formGroup]="form">
+  <div md-dialog-content *ngIf="step === 'first'">
+    <div class="row pt-3">
+      <div class="col-sm-6">
+        <md-input-container>
+          <input mdInput id="name" placeholder="{{'Name' | translate}}" type="text" value="" [formControl]="form.controls['name']">
+        </md-input-container>
+        <md-icon mdTooltip="{{'groupnameinfo' | translate}}" mdTooltipPosition="below">info</md-icon>
+      </div>
+      <div class="col-sm-6">
+        <md-select placeholder="{{'grouptype' | translate}}" [formControl]="form.controls['grouptype']">
+          <md-option *ngFor="let g of groupTypes" [value]="g.code">
+            {{ g.text }}
+          </md-option>
+        </md-select>
+        <md-icon mdTooltip="{{'grouptypeinfo' | translate}}" mdTooltipPosition="below">info</md-icon>
+      </div>
+    </div>
+    <div class="row pt-3" *ngIf="form.value.grouptype == 'PUBLIC'">
+      <div class="col-sm-6">
+        <md-input-container>
+          <input mdInput id="minIndex" placeholder="{{'Minimum index credit' | translate}}" type="number" value="0" [formControl]="form.controls['minIndex']">
+        </md-input-container>
+      </div>
+      <div class="col-sm-6">
+        <md-input-container>
+          <input mdInput id="maxIndex" placeholder="{{'Maximum index credit' | translate}}" type="number" value="1000" [formControl]="form.controls['maxIndex']">
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row pt-3">
+      <div class="col-sm-6">
+        <md-input-container>
+          <input mdInput id="frequency" placeholder="{{'frequency' | translate}}" type="number" value="" [formControl]="form.controls['frequency']">
+        </md-input-container>
+        <md-icon mdTooltip="{{'groupmonthinfo' | translate}}" mdTooltipPosition="below">info</md-icon>
+      </div>
+      <div class="col-sm-6">
+        <md-select placeholder="{{'Currency' | translate}}" [formControl]="form.controls['currency']">
+          <md-option *ngFor="let c of currencies" [value]="c.code">
+            {{ c.code }}
+          </md-option>
+        </md-select>
+        <md-icon mdTooltip="{{'groupcurrencyinfo' | translate}}" mdTooltipPosition="below">info</md-icon>
+      </div>
+    </div>
+    <div class="row pt-3">
+      <div class="col-sm-12">
+        <md-input-container>
+          <textarea mdInput placeholder="{{'Description' | translate}}" rows="3" [formControl]="form.controls['description']"></textarea>
+        </md-input-container>
+      </div>
+    </div>
+    <p>You are about to create a <span>{{form.value.grouptype}}</span> group named <span>{{form.value.name}}</span>.</p>
+    <p *ngIf="form.value.frequency == 1">This payment will have to be made each month.</p>
+    <p *ngIf="form.value.frequency > 1">This payment will have to be made every <span>{{form.value.frequency}}</span> months.</p>
+  </div>
+  <div md-dialog-actions *ngIf="step === 'first'">
+    <button md-raised-button (click)="dialogRef.close('no')" type="button" color="default">{{'Cancel' | translate}}</button>
+    <button md-raised-button color="primary" layout-align="end" (click)="step = 'second'" [disabled]="!form.controls['name'].valid || !form.controls['grouptype'].valid || !form.controls['frequency'].valid || !form.controls['currency'].valid || !form.controls['description'].valid || !form.controls['minIndex'].valid || !form.controls['maxIndex'].valid">{{'Next' | translate}} >></button>
+  </div>
+  <div md-dialog-content *ngIf="step === 'second'">
+    <div class="row pt-3">
+      <div class="col-sm-6">
+        <md-input-container>
+          <input mdInput id="amount" class="text-right" placeholder="{{'Amount' | translate}}" type="number" value="" [formControl]="form.controls['amount']">
+        </md-input-container>
+        <span>{{currencySigns[form.value.currency]}}</span>
+      </div>
+      <div class="col-sm-6">
+        <md-input-container>
+          <input mdInput id="rate" placeholder="{{'Rate' | translate}}" type="number" value="" [formControl]="form.controls['rate']">
+        </md-input-container>
+        <md-icon mdTooltip="{{'grouprateinfo' | translate}}" mdTooltipPosition="below">info</md-icon>
+      </div>
+    </div>
+    <div class="row pt-3">
+      <div class="col-sm-6">
+        <md-input-container>
+          <input mdInput id="duedate" placeholder="{{'Due date' | translate}}" type="number" value="" [formControl]="form.controls['duedate']">
+        </md-input-container>
+        <md-icon mdTooltip="{{'groupdayinfo' | translate}}" mdTooltipPosition="below">info</md-icon>
+      </div>
+      <div class="col-sm-6">
+        <md-select placeholder="{{'Position Selection' | translate}}" [formControl]="form.controls['pstype']">
+          <md-option *ngFor="let p of psTypes" [value]="p.code">
+            {{ p.text }}
+          </md-option>
+        </md-select>
+        <md-icon mdTooltip="{{'grouppstypeinfo' | translate}}" mdTooltipPosition="below">info</md-icon>
+      </div>
+    </div>
+    <div class="row pt-3">
+      <div class="col-sm-6">
+        <md-input-container>
+          <input mdInput id="nbdpenal" placeholder="{{'Number of days of delay allowed' | translate}}" type="number" value="" [formControl]="form.controls['nbdpenal']">
+        </md-input-container>
+        <md-icon mdTooltip="{{'grouppenalinfo' | translate}}" mdTooltipPosition="below">info</md-icon>
+      </div>
+      <div class="col-sm-6">
+        <md-input-container>
+          <input mdInput id="penalty" placeholder="{{'Penalty' | translate}}" type="number" value="" [formControl]="form.controls['penalty']">
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row pt-3" *ngIf="form.value.rate > 0">
+      <div class="col-sm-12">
+        <md-checkbox [checked]="form.value.rate > 0" color="primary" [disabled]="form.value.grouptype == 'PUBLIC'" [formControl]="form.controls['smoothpayment']">
+          {{'Smooth payment' | translate}}
+        </md-checkbox>
+        <md-icon mdTooltip="{{'grouppaymentinfo' | translate}}" mdTooltipPosition="below">info</md-icon>
+      </div>
+    </div>
+    <p *ngIf="form.value.rate > 0">The amount due will be <span>{{form.value.amount}} {{form.value.currency}}</span> with <span>{{form.value.rate}}</span> % interest applied.</p>
+    <p *ngIf="form.value.rate <= 0">The amount due will be <span>{{form.value.amount}} {{form.value.currency}}</span>.</p>
+    <p *ngIf="form.value.frequency == 1">This payment will have to be made on the <span>{{form.value.duedate}}</span> of each month.</p>
+    <p *ngIf="form.value.frequency > 1">This payment will have to be made on the <span>{{form.value.duedate}}</span> every <span>{{form.value.frequency}}</span> months.</p>
+    <p *ngIf="form.value.nbdpenal > 0 && form.value.penalty > 0">After a payment delay of <span>{{form.value.nbdpenal}}</span> days, a penalty of <span>{{form.value.penalty}}</span>% will apply.</p>
+    <p *ngIf="form.value.grouptype == 'PRIVATE' && form.value.smoothpayment == true && form.value.rate > 0">The total payment (amount + interest) to pay will be smoothed.</p>
+    <p *ngIf="form.value.frequency == 1">This will allow you to pay a single amount every month.</p>
+    <p *ngIf="form.value.frequency > 1">This will allow you to pay a single amount every <span>{{form.value.frequency}}</span> months.</p>
+    <p *ngIf="form.value.pstype != ''">When the group is kicked off, the members will select their position using <span>{{form.value.pstype}}</span></p>
+  </div>
+  <div md-dialog-actions *ngIf="step === 'second'">
+    <button md-raised-button (click)="step = 'first'" color="primary" layout-align="end"><< {{'Previous' | translate}}</button>
+    <button md-raised-button (click)="dialogRef.close('no')" type="button" color="default">{{'Cancel' | translate}}</button>
+    <button md-raised-button color="primary" layout-align="end" (click)="onSubmit()" [disabled]="!form.valid" type="button">{{'Finish' | translate}}</button>
+  </div>
+</form>

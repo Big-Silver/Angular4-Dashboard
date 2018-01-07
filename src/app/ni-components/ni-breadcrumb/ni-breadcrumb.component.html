@@ -1,0 +1,8 @@
+<ul class="breadcrumb" [ngClass]="getClasses()">
+  <li *ngFor="let item of menu; let last = last ; let first = first">
+    <a routerLink="{{item.link}}" *ngIf="item.link" (click)="goRoute(item)"><span class="icon {{item.icon}}" *ngIf="item.icon"></span>{{item.title | translate}}</a>
+    <span class="static" *ngIf="!item.link && !first"><span class="icon {{item.icon}}" *ngIf="item.icon"></span>{{item.title | translate}}</span>
+    <span class="static" *ngIf="!item.link && first"><span class="icon {{item.icon}}" *ngIf="item.icon"></span>{{item.title | translate}}</span>
+    <span class="separator" *ngIf="!last">{{separator | translate}}</span>
+  </li>
+</ul>

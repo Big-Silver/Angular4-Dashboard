@@ -1,0 +1,70 @@
+<nav class="main-menu">
+  <ul>
+    <li
+      class="menu-item"
+      *ngFor="let item of menuItems"
+      [ngClass]="getLiClasses(item, rla.isActive)"
+      #rla="routerLinkActive"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact:true}"
+    >
+      <div *ngIf="item.groupTitle; then group else default"></div>
+
+      <!-- Default item -->
+      <ng-template #default>
+        <div *ngIf="!item.sub; then simple else sub"></div>
+
+        <ng-template #simple>
+          <a href="#" class="item-link" routerLink="{{ item.routing }}" (click)="toggle($event, item, this)">
+            <span class="text">{{ item.title | translate }}</span>
+
+            <span
+              class="item-badge"
+              *ngIf="item.badge && item.badge.text"
+              [ngStyle]="getStyles(item.badge)"
+            >{{ item.badge.text }}</span>
+
+            <span class="icon">
+              <i class="icon-wrap {{ item.icon.class }}" *ngIf="item.icon && item.icon.class" [ngStyle]="getStyles(item.icon)"></i>
+            </span>
+          </a>
+        </ng-template>
+
+        <ng-template #sub>
+          <!-- Item with sub -->
+          <a href="#" class="item-link" (click)="toggle($event, item, this)">
+            <span class="text">{{ item.title }}</span>
+
+            <span
+              class="item-badge"
+              *ngIf="item.badge && item.badge.text"
+              [ngStyle]="getStyles(item.badge)"
+            >{{ item.badge.text }}</span>
+
+            <span class="caret" *ngIf="item.sub"></span>
+
+            <span class="icon">
+              <i class="icon-wrap {{ item.icon.class }}" *ngIf="item.icon && item.icon.class" [ngStyle]="getStyles(item.icon)"></i>
+            </span>
+          </a>
+
+          <!-- Menu sub -->
+          <ul class="sub" *ngIf="!item.groupTitle && item.sub">
+            <li
+              class="menu-item"
+              *ngFor="let itemSub of item.sub"
+              [ngClass]="getLiClasses(itemSub, rla.isActive)"
+              #rla="routerLinkActive"
+              routerLinkActive="active"
+              (click)="changeGroup(itemSub)"
+            >
+              <a href="#" routerLink="{{ itemSub.routing }}" class="item-link">
+                <span class="text">{{ itemSub.title }}</span>
+              </a>
+            </li>
+          </ul>
+        </ng-template>
+      </ng-template>
+    </li>
+  </ul>
+</nav>

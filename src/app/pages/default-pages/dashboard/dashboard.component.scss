@@ -1,0 +1,76 @@
+@import '../../../../assets/sass/variable';
+
+.chart-container {
+  align-items: center;
+  display: flex;
+  height: 400px;
+  justify-content: center;
+  width: 100%;
+  @media #{$max767} {
+    height: 300px;
+  }
+
+  canvas {
+    margin: 0 auto;
+    max-height: 100%;
+    width: auto !important;
+  }
+}
+:host /deep/ {
+  .amcharts-graph-g2 .amcharts-graph-stroke {
+    stroke-dasharray: 3px 3px;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    animation: am-moving-dashes 1s linear infinite;
+  }
+  @keyframes am-moving-dashes {
+    100% {
+      stroke-dashoffset: -31px;
+    }
+  }
+
+  .lastBullet {
+    animation: am-pulsating 1s ease-out infinite;
+  }
+  @keyframes am-pulsating {
+    0% {
+      stroke-opacity: 1;
+      stroke-width: 0px;
+    }
+    100% {
+      stroke-opacity: 0;
+      stroke-width: 50px;
+    }
+  }
+
+  .amcharts-graph-column-front {
+    transition: all .3s .3s ease-out;
+  }
+  .amcharts-graph-column-front:hover {
+    fill: #496375;
+    stroke: #496375;
+    transition: all .3s ease-out;
+  }
+
+  .amcharts-graph-g3 {
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    stroke-dasharray: 500%;
+    stroke-dasharray: 0;
+    stroke-dashoffset: 0;
+    animation: am-draw 40s;
+  }
+  @keyframes am-draw {
+    0% {
+      stroke-dashoffset: 500%;
+    }
+    100% {
+      stroke-dashoffset: 0%;
+    }
+  }
+  table {
+    .btn-action {
+      line-height: 25px;
+    }
+  }
+}

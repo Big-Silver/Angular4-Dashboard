@@ -1,0 +1,51 @@
+<ni-card [title]="'signup' | translate" [align]="'left'">
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <md-input-container>
+      <input mdInput [placeholder]="'firstname' | translate" [formControl]="form.controls['fname']">
+      <small *ngIf="form.controls['fname'].hasError('required') && form.controls['fname'].touched" class="form-message text-danger">{{'firstnameValid1' | translate}}</small>
+      <small *ngIf="form.controls['fname'].hasError('minlength') && form.controls['fname'].touched" class="form-message text-danger">{{'firstnameValid2' | translate}}</small>
+      <small *ngIf="form.controls['fname'].hasError('maxlength') && form.controls['fname'].touched" class="form-message text-danger">{{'firstnameValid3' | translate}}</small>
+    </md-input-container>
+
+    <md-input-container>
+        <input mdInput [placeholder]="'email' | translate" [formControl]="form.controls['email']" type="email">
+        <small *ngIf="form.controls['email'].hasError('required') && form.controls['email'].touched" class="form-message text-danger">{{'emailValid1' | translate}}</small>
+        <small *ngIf="form.controls['email'].errors?.email && form.controls['email'].touched" class="form-message text-danger">{{'emailValid2' | translate}}</small>
+    </md-input-container>
+
+    <md-input-container>
+      <input mdInput [placeholder]="'password' | translate" [formControl]="form.controls['password']" type="password">
+      <small *ngIf="form.controls['password'].hasError('required') && form.controls['password'].touched" class="form-message text-danger">{{'passwordValid1' | translate}}</small>
+      <small *ngIf="form.controls['password'].hasError('minlength') && form.controls['password'].touched" class="form-message text-danger">{{'passwordValid2' | translate}}</small>
+    </md-input-container>
+
+    <md-input-container>
+      <input mdInput [placeholder]="'confirmPass' | translate" [formControl]="form.controls['confirmPassword']" type="password">
+      <small *ngIf="form.controls['confirmPassword'].hasError('required') && form.controls['confirmPassword'].touched" class="form-message text-danger">{{'confirmpasswordValid1' | translate}}</small>
+      <small *ngIf="form.controls['confirmPassword'].errors?.equalTo" class="form-message text-danger">{{'confirmpasswordValid2' | translate}}</small>
+    </md-input-container>
+
+    <div class="text-left mb-4 mt-2">
+      <label>{{'gender' | translate}}</label>
+      <md-radio-group [formControl]="form.controls['gender']">
+        <md-radio-button value="male">{{'male' | translate}}</md-radio-button>
+        <md-radio-button value="female">{{'female' | translate}}</md-radio-button>
+        <small *ngIf="!form.controls['gender'].valid && form.controls['gender'].touched" class="text-danger">{{'genderValid1' | translate}}</small>
+      </md-radio-group>
+    </div>
+
+    <div class="text-left mb-module">
+      <md-checkbox [formControl]="form.controls['agree']" (click)="openDialog()">
+        {{'agreeTermsofService' | translate}}
+      </md-checkbox>
+      <small *ngIf="!form.controls['agree'].valid && form.controls['agree'].touched" class="text-danger">{{'agreeTermsofService' | translate}}</small>
+    </div>
+
+    <button md-raised-button color="primary" type="submit" [disabled]="!form.valid">{{'signup' | translate}}</button>
+
+    <div class="additional-info">
+      {{'alreadyHaveAccount' | translate}}
+      <a [routerLink]="'/extra-layout/sign-in'">{{'signin' | translate}}</a>
+    </div>
+  </form>
+</ni-card>

@@ -1,0 +1,29 @@
+@import '../../../../assets/sass/variable';
+
+:host {
+  background: url(../../../../assets/content/signup-bg.jpg) 50% 50% no-repeat;
+  background-size: cover;
+  display: table-cell;
+  height: 100%;
+  vertical-align: middle;
+  width: 100%;
+
+  .ni-card {
+    margin: 0 auto;
+    max-width: 400px;
+
+    /deep/ .card-wrap {
+      border: 0;
+    }
+    form {
+      button {
+        width: 100%;
+      }
+      .additional-info {
+        background: rgba(#000,.1);
+        margin: $module-rem * 2 (-($module-rem * 2)) (-($module-rem * 2));
+        padding: $module-rem $module-rem * 2;
+      }
+    }
+  }
+}

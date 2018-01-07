@@ -1,0 +1,147 @@
+@import '../../../assets/sass/variable';
+
+:host {
+  display: inline-block;
+  margin: 0 4px 10px;
+  position: relative;
+
+  .file {
+    display: block;
+    width: 120px;
+
+    .file-prev {
+      background: main-color(200);
+      border-radius: 3px;
+      color: #fff;
+      display: block;
+      font-size: 40px;
+      overflow: hidden;
+      padding-top: 100%;
+      position: relative;
+      width: 100%;
+
+      .icon {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+
+        .delete {
+          background: rgba(#000,.1);
+          cursor: pointer;
+          font-size: 20px;
+          position: absolute;
+          right: 0;
+          top: 0;
+          transition:
+            background .2s $animation,
+            color .2s $animation;
+
+          .rtl & {
+            left: 0;
+            right: auto;
+          }
+          &:hover {
+            background: rgba(#fff,.3);
+            color: #f00;
+          }
+        }
+      }
+      .spinner {
+        background: inherit;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+
+        .fa {
+          font-size: inherit;
+        }
+      }
+    }
+    .file-name {
+      display: flex;
+      flex-wrap: nowrap;
+      font-size: 11px;
+      justify-content: flex-end;
+      margin-top: 3px;
+      white-space: nowrap;
+
+      .rtl & {
+        justify-content: flex-start;
+      }
+      .name {
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+    &.doc-file {
+      .file-prev {
+        background: #029acf;
+      }
+    }
+    &.xlx-file {
+      .file-prev {
+        background: #469408;
+      }
+    }
+    &.pdf-file {
+      .file-prev {
+        background: #d9831f;
+      }
+    }
+    &.archive-file {
+      .file-prev {
+        background: #9b479f;
+      }
+    }
+    &.audio-file {
+      .file-prev {
+        background: #FF9800;
+      }
+    }
+    &.video-file {
+      .file-prev {
+        background: #FF5722;
+      }
+    }
+    &.image-file {
+      .file-prev {
+        .icon {
+          background-position: 50% 50%;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+      }
+    }
+    &.size-small {
+      width: 50px;
+
+      .file-prev {
+        font-size: 20px;
+      }
+    }
+    &.size-large {
+      width: 180px;
+
+      .file-prev {
+        font-size: 60px;
+      }
+    }
+    &.spinner-file {
+      .file-prev {
+        .icon {
+          visibility: hidden;
+        }
+      }
+    }
+  }
+}

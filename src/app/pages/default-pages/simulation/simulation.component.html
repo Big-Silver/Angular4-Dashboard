@@ -1,0 +1,66 @@
+
+<ni-breadcrumb [menu]="breadcrumb" [style]="'custom2'" class="mb-4"></ni-breadcrumb>
+<md-card>
+  <form [formGroup]="form">
+    <div class="row pt-3">
+      <div class="col-sm-6">
+        <md-input-container>
+          <input mdInput id="amount" class="text-right" placeholder="{{'Amount' | translate}}" type="number" value="" [formControl]="form.controls['amount']">
+        </md-input-container>
+        <span>{{currencySigns[form.value.currency]}}</span>
+      </div>
+      <div class="col-sm-6">
+        <md-input-container>
+          <input mdInput id="frequency" placeholder="{{'frequency' | translate}}" type="number" value="" [formControl]="form.controls['frequency']">
+        </md-input-container>
+        <md-icon mdTooltip="{{'groupmonthinfo' | translate}}" mdTooltipPosition="below">info</md-icon>
+      </div>
+    </div>
+    <div class="row pt-3">
+      <div class="col-sm-6">
+        <md-select placeholder="{{'Currency' | translate}}" [formControl]="form.controls['currency']">
+          <md-option *ngFor="let c of currencies" [value]="c.code">
+            {{ c.text }}
+          </md-option>
+        </md-select>
+        <md-icon mdTooltip="{{'groupcurrencyinfo' | translate}}" mdTooltipPosition="below">info</md-icon>    
+      </div>
+      <div class="col-sm-6">
+        <md-select placeholder="{{'grouptype' | translate}}" [formControl]="form.controls['grouptype']">
+          <md-option *ngFor="let g of groupTypes" [value]="g.code">
+            {{ g.text }}
+          </md-option>
+        </md-select>
+        <md-icon mdTooltip="{{'grouptypeinfo' | translate}}" mdTooltipPosition="below">info</md-icon>    
+      </div>
+    </div>
+    <div class="row pt-3">
+      <div class="col-sm-6">
+        <md-input-container>
+          <input mdInput id="rate" placeholder="{{'Rate' | translate}}" type="number" value="" [formControl]="form.controls['rate']">
+        </md-input-container>
+        <md-icon mdTooltip="{{'grouprateinfo' | translate}}" mdTooltipPosition="below">info</md-icon>    
+      </div>
+      <div class="col-sm-6">
+        <md-input-container>
+          <input mdInput id="duedate" placeholder="{{'Due date' | translate}}" type="number" value="" [formControl]="form.controls['duedate']">
+        </md-input-container>
+        <md-icon mdTooltip="{{'groupdayinfo' | translate}}" mdTooltipPosition="below">info</md-icon>
+      </div>
+    </div>
+    <div class="row pt-3">
+      <div class="col-sm-6">
+        <md-input-container>
+          <input mdInput id="totalnum" placeholder="{{'Total number of member' | translate}}" type="number" value="" [formControl]="form.controls['totalnum']">
+        </md-input-container>
+      </div>
+      <div class="col-sm-6">
+        <md-input-container>
+          <input mdInput id="position" placeholder="{{'Position' | translate}}" type="number" value="" [formControl]="form.controls['position']">
+        </md-input-container>
+      </div>
+    </div>
+    <p>The payment will be done every {{form.value.frequency}} {{form.value.frequency > 1 ? 'months' : 'month'}}, and the receiver will get {{form.value.amount}} the amount in {{form.value.currency}} plus {{form.value.rate}} % interest. The payment will have to be made on the {{form.value.duedate}}.</p>
+    <button md-raised-button color="primary" layout-align="end" (click)="simulate()" [disabled]="!form.valid">{{'Simulate' | translate}}</button>
+  </form>
+</md-card>

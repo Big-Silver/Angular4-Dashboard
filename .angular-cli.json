@@ -1,0 +1,76 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "Assist"
+  },
+  "apps": [
+    {
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        "assets/img/favicon.ico",
+        "../node_modules/amcharts3/amcharts/images"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "assets/css/font-awesome.min.css",
+        "assets/sass/simple-line-icons.scss",
+        "assets/sass/bootstrap.scss",
+        "assets/sass/loader.scss",
+        "assets/sass/custom-material-theme.scss",
+        "../node_modules/angular-calendar/dist/css/angular-calendar.css",
+        "../node_modules/leaflet/dist/leaflet.css",
+        "../node_modules/squeezebox/styles.css",
+        "assets/sass/style.scss"
+      ],
+      "scripts": [
+        "../node_modules/amcharts3/amcharts/amcharts.js",
+        "../node_modules/amcharts3/amcharts/pie.js",
+        "../node_modules/amcharts3/amcharts/radar.js",
+        "../node_modules/amcharts3/amcharts/xy.js",
+        "../node_modules/amcharts3/amcharts/serial.js",
+        "../node_modules/amcharts3/amcharts/themes/light.js"
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    }
+  ],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "project": "src/tsconfig.app.json"
+    },
+    {
+      "project": "src/tsconfig.spec.json"
+    },
+    {
+      "project": "e2e/tsconfig.e2e.json"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "scss",
+    "component": { },
+    "serve": {
+      "port": 4201
+    }
+  }
+}

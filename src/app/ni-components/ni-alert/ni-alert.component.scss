@@ -1,0 +1,100 @@
+@import '../../../assets/sass/variable';
+
+:host {
+  display: block;
+  margin-bottom: ($module-rem * 2);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+  .alert {
+    background: main-color(500);
+    border: 1px solid main-color(500);
+    border-radius: 3px;
+    padding: ($module-rem * 2 / 1.5) ($module-rem * 2);
+    position: relative;
+
+    &:not(.outline-alert){
+      color: main-contrast(500);
+
+      /deep/ a {
+        color: rgba(main-contrast(500),.8);
+
+        &:hover {
+          color: main-contrast(500);
+        }
+      }
+    }
+    .close {
+      background: rgba(#000,.1);
+      font-size: 20px;
+      line-height: 1;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition:
+        background .2s $animation,
+        color .2s $animation;
+
+      .rtl & {
+        left: 0;
+        right: auto;
+      }
+      &:hover {
+        background: rgba(#fff,.3);
+        color: #f00;
+      }
+
+      .material-icons {
+        color: inherit;
+        font-size: inherit;
+        margin: 0;
+        vertical-align: top;
+      }
+    }
+    /deep/ .material-icons {
+      color: accent-color(500);
+      margin: 0 ($module-rem * 2) 0 0;
+      vertical-align: top;
+
+      .rtl & {
+        margin: 0 0 0 ($module-rem * 2);
+      }
+    }
+    &.success-alert {
+      background: $success-color;
+      border-color: $success-color;
+
+      /deep/ .material-icons {
+        color: $success-color;
+      }
+    }
+    &.info-alert {
+      background: $info-color;
+      border-color: $info-color;
+
+      /deep/ .material-icons {
+        color: $info-color;
+      }
+    }
+    &.warning-alert {
+      background: $warning-color;
+      border-color: $warning-color;
+
+      /deep/ .material-icons {
+        color: $warning-color;
+      }
+    }
+    &.danger-alert {
+      background: $error-color;
+      border-color: $error-color;
+
+      /deep/ .material-icons {
+        color: $error-color;
+      }
+    }
+    &.outline-alert {
+      background: none !important;
+    }
+  }
+}

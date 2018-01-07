@@ -1,0 +1,14 @@
+<div class="site-container" [ngClass]="getClasses()" [attr.dir]="rtl ? 'rtl' : null">
+  <horizontal-navbar [title]="pageTitle" (sidebarState)="sidebarState()"></horizontal-navbar>
+
+  <vertical-navbar></vertical-navbar>
+
+  <main class="main-content">
+    <div class="main-content-wrap">
+      <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
+  </main>
+
+  <div class="app-overlay"></div>
+</div>

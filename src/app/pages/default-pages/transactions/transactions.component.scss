@@ -1,0 +1,18 @@
+@import '../../../../assets/sass/variable';
+
+:host {
+  /deep/.ni-h-timeline {
+    .timeline-box {
+      .box-items {
+        .item {
+          margin: $module-rem 0 !important;
+          padding-left: 30px !important;
+
+          .item-content {
+            padding: $module-rem !important;
+          }
+        }
+      }
+    }
+  }
+}

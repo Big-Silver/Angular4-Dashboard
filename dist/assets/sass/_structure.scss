@@ -1,0 +1,36 @@
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  overflow-x: hidden;
+}
+app {
+  display: block;
+  height: 100%;
+}
+.site-container {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+
+  > * {
+    display: block;
+  }
+  > router-outlet {
+    display: none;
+  }
+  .main-content {
+    height: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+
+    .main-content-wrap {
+      display: table;
+      height: 100%;
+      padding: 22px;
+      table-layout: fixed;
+      width: 100%;
+    }
+  }
+}

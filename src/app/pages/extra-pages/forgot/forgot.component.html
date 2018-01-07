@@ -1,0 +1,15 @@
+<ni-card [title]="'Reset Your Password'" [align]="'center'">
+  <form (ngSubmit)="onSubmit()">
+    <md-input-container>
+      <input mdInput placeholder="Email" value="">
+    </md-input-container>
+
+    <p class="text-left small">Enter your email address that you used to register. We'll send you an email with your username and a link to reset your password.</p>
+
+    <button md-raised-button color="primary" type="submit">Reset</button>
+
+    <div class="additional-info">
+      <a [routerLink]="'/extra-layout/sign-in'">Sign In</a>
+    </div>
+  </form>
+</ni-card>

@@ -1,0 +1,130 @@
+@import '../../../../assets/sass/variable';
+
+:host {
+  background: main-color(700);
+  color: main-contrast(700);
+  display: block;
+  height: $module-rem * 5;
+  position: relative;
+
+  .logo {
+    align-items: flex-start;
+    color: inherit;
+    display: block;
+    text-align: center;
+    font-size: 28px;
+    height: 100%;
+    padding: $module-rem ($module-rem * 2);
+    text-decoration: none;
+
+    .logo-img {
+      height: auto;
+      max-height: 100%;
+      max-width: 100%;
+      vertical-align: top;
+      width: auto;
+    }
+    .logo-text {
+      display: block;
+      font-size: 33px;
+      font-weight: 500;
+      line-height: 1;
+    }
+  }
+  .compress-logo {
+    align-items: flex-start;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    opacity: 0;
+    padding: $module-rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: $vertical-navbar-compress-width;
+
+    .rtl & {
+      left: 0;
+      right: auto;
+    }
+    .logo-img {
+      height: auto;
+      max-height: 100%;
+      max-width: 100%;
+      vertical-align: top;
+      width: auto;
+    }
+    .logo-text {
+      display: block;
+      font-size: 26px;
+      font-weight: 500;
+      line-height: 1;
+    }
+  }
+  .menu-style-2 &,
+  .menu-style-3 &,
+  .menu-style-4 & {
+    .compress-logo {
+      left: 0;
+      right: auto;
+    }
+  }
+  .menu-style-2.rtl &,
+  .menu-style-3.rtl &,
+  .menu-style-4.rtl & {
+    .compress-logo {
+      left: auto;
+      right: 0;
+    }
+  }
+  .compress-vertical-navbar & {
+    @media #{$min992} {
+      .logo {
+        opacity: 0;
+        transform: translateX(100%);
+        transition:
+          .2s opacity 0s $animation,
+          .2s transform 0s $animation;
+      }
+      .compress-logo {
+        opacity: 1;
+        transform: scale(1);
+        transition:
+          .2s opacity .2s $animation,
+          .2s transform .2s $animation;
+      }
+    }
+  }
+  .compress-vertical-navbar.rtl & {
+    @media #{$min992} {
+      .logo {
+        transform: translateX(-100%);
+      }
+    }
+  }
+  .compress-vertical-navbar .vertical-navbar:hover & {
+    @media #{$min992} {
+      .logo {
+        opacity: 1;
+        transform: translateX(0);
+        transition:
+          .2s opacity .2s $animation,
+          .2s transform .2s $animation;
+      }
+      .compress-logo {
+        opacity: 0;
+        transform: scale(0);
+        transition:
+          .2s opacity 0s $animation,
+          .2s transform 0s $animation;
+      }
+    }
+  }
+  .compress-vertical-navbar.rtl .vertical-navbar:hover & {
+    @media #{$min992} {
+      .logo {
+        transform: translateX(0);
+      }
+    }
+  }
+}

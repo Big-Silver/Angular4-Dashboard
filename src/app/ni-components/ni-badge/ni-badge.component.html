@@ -1,0 +1,4 @@
+<div class="badge" [ngClass]="getClasses()" [ngStyle]="getStyles()">
+  <div class="arrow" [ngClass]="getArrowClasses()" *ngIf="arrow"></div>
+  <ng-content></ng-content>
+</div>

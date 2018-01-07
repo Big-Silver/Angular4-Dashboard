@@ -1,0 +1,36 @@
+<ni-card [title]="'signin' | translate" [align]="'left'">
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <md-input-container>
+      <input mdInput [placeholder]="'email' | translate" value="" [formControl]="form.controls['email']" type="email">
+      <small *ngIf="form.controls['email'].hasError('required') && form.controls['email'].touched" class="form-message text-danger">{{'emailValid1' | translate}}</small>
+      <small *ngIf="form.controls['email'].errors?.email && form.controls['email'].touched" class="form-message text-danger">{{'emailValid2' | translate}}</small>
+    </md-input-container>
+
+    <md-input-container>
+      <input mdInput [placeholder]="'password' | translate" value="" [formControl]="form.controls['password']" type="password">
+      <small *ngIf="form.controls['password'].hasError('required') && form.controls['password'].touched" class="form-message text-danger">{{'passwordValid1' | translate}}</small>
+      <small *ngIf="form.controls['password'].hasError('minlength') && form.controls['password'].touched" class="form-message text-danger">{{'passwordValid2' | translate}}</small>
+      <small *ngIf="!isEmailCorrect" class="form-message text-danger">{{'emailValid3' | translate}}</small>
+    </md-input-container>
+
+    <div class="text-left mb-module mt-3">
+      <md-checkbox>
+        {{'keepSigned' | translate}}
+      </md-checkbox>
+    </div>
+
+    <button md-raised-button color="primary" type="submit" [disabled]="!form.valid">{{'signin' | translate}}</button>
+
+    <md-select [placeholder]="'selectLanguage' | translate" class="mt-4 col-sm-12" (ngModelChange)="changeLanguage()" [formControl]="form.controls['langCode']">
+      <md-option *ngFor="let lang of languages" [value]="lang.code">
+        {{ lang.value }}
+      </md-option>
+    </md-select>
+
+    <div class="additional-info">
+      <a (click)="goSignupPage()">{{'signup' | translate}}</a>
+      <span class="divider"></span>
+      <a (click)="goForgotPage()">{{'forgotPassword' | translate}}</a>
+    </div>
+  </form>
+</ni-card>

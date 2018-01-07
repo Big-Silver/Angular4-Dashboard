@@ -1,0 +1,20 @@
+<div class="row members-header">
+  <div class="col-sm-6">
+    <ni-breadcrumb [menu]="breadcrumb" [style]="'custom2'" class="mb-4"></ni-breadcrumb>      
+  </div>
+  <div class="col-sm-6 text-right">
+    <md-input-container class="search-group md-icon-left">
+      <md-icon>search</md-icon>
+      <input mdInput value="">
+    </md-input-container>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <ni-card [title]="'Requests' | translate" (refresh)="doRefresh($event)" [showRefresh]="true">
+      <ni-table [headers]="requestHeaders" [data]="requests"></ni-table>
+      <ni-alert *ngIf="requests.length === 0" [color]="'warning'" [outline]="true"><strong>{{'norequest' | translate}}</strong></ni-alert>
+      <ni-pagination [totalItems]="total" [itemPerPage]="max" [currentPage]="page" *ngIf="requests.length > 0" (changePage)="changePage($event)"></ni-pagination>
+    </ni-card>
+  </div>
+</div>

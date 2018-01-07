@@ -1,0 +1,147 @@
+@import '../../../assets/sass/variable';
+
+:host {
+  display: inline-block;
+
+  .badge {
+    background: main-color(500);
+    border: 1px solid main-color(500);
+    color: main-contrast(500);
+    font-size: .75rem;
+    font-family: $main-ff;
+    line-height: $main-lh;
+    min-width: 20px;
+    padding: 1px 6px;
+    position: relative;
+    text-align: center;
+
+    .arrow {
+      border: 6px solid transparent;
+      height: 0;
+      position: absolute;
+      width: 0;
+
+      &.arrow-top {
+        border-bottom-color: inherit;
+        bottom: 100%;
+        left: 50%;
+        margin-left: -6px;
+      }
+      &.arrow-right {
+        border-left-color: inherit;
+        left: 100%;
+        margin-top: -6px;
+        top: 50%;
+      }
+      &.arrow-bottom {
+        border-top-color: inherit;
+        left: 50%;
+        margin-left: -6px;
+        top: 100%;
+      }
+      &.arrow-left {
+        border-right-color: inherit;
+        margin-top: -6px;
+        right: 100%;
+        top: 50%;
+      }
+    }
+    &.border-radius-badge {
+      border-radius: 10px;
+
+      .arrow {
+        &.arrow-right {
+          margin-left: -2px;
+        }
+        &.arrow-left {
+          margin-right: -2px;
+        }
+      }
+    }
+    &.success-badge {
+      background: $success-color;
+      border-color: $success-color;
+    }
+    &.info-badge {
+      background: $info-color;
+      border-color: $info-color;
+    }
+    &.warning-badge {
+      background: $warning-color;
+      border-color: $warning-color;
+    }
+    &.danger-badge {
+      background: $error-color;
+      border-color: $error-color;
+    }
+    &.outline-badge {
+      background: none !important;
+      color: inherit;
+
+      &.success-badge {
+        color: $success-color;
+      }
+      &.info-badge {
+        color: $info-color;
+      }
+      &.warning-badge {
+        color: $warning-color;
+      }
+      &.danger-badge {
+        color: $error-color;
+      }
+    }
+    &.custom-badge {
+      &:not(.outline-badge) {
+        color: #fff !important;
+      }
+    }
+    &.arrow-right-badge {
+      margin-right: 6px;
+    }
+    &.arrow-left-badge {
+      margin-left: 6px;
+    }
+    &.large-badge {
+      padding: 6px 20px;
+
+      &.border-radius-badge {
+        border-radius: 15px;
+      }
+    }
+    &.medium-badge {
+      padding: 3px 12px;
+
+      &.border-radius-badge {
+        border-radius: 12px;
+      }
+    }
+  }
+  md-icon & {
+    .badge {
+      bottom: 100%;
+      left: 100%;
+      margin: 0 0 -10px -10px;
+      position: absolute;
+      z-index: 1;
+
+      &.top-left {
+        left: auto;
+        margin: 0 -10px -10px 0;
+        right: 100%;
+      }
+      &.bottom-left {
+        bottom: auto;
+        left: auto;
+        margin: -10px -10px 0 0;
+        right: 100%;
+        top: 100%;
+      }
+      &.bottom-right {
+        bottom: auto;
+        margin: -10px 0 0 -10px;
+        top: 100%;
+      }
+    }
+  }
+}

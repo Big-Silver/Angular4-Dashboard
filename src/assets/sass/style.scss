@@ -1,0 +1,141 @@
+@import './variable';
+
+@import './fonts';
+
+@import './structure';
+@import './typography';
+@import './helpers';
+@import './components/material-components';
+@import './components/bootstrap';
+
+horizontal-navbar {
+  .btn-group-list {
+    font-size: 12px !important;
+  }
+  .page-title {
+    width: initial !important;
+  }
+  md-input-container {
+    margin-top: 10px !important;
+
+    span label {
+      color: white !important;
+    }
+
+    input, span {
+      text-align: right;
+    }
+  }
+  .btn-navbar {
+    font-size: 35px;
+    margin: 0 5px;
+    width: initial;
+    height: initial;
+  }
+  .btn-navbar:hover {
+    color: #5badf0;
+  }
+}
+
+group-create {
+  md-select {
+    width: 90%;
+  }
+
+  .col-sm-6 {
+    display: flex;
+  }
+}
+md-dialog-container {
+  width: 500px !important;
+  padding: 0 0 30px !important;
+  h2 {
+    background: #e5e6e9 !important;
+    padding: 24px !important;
+    text-align: center !important;
+    margin: 0 !important;
+  }
+  .mat-dialog-content {
+    margin: 20px 0;
+  }
+  .mat-dialog-actions {
+    justify-content: space-between;
+  }
+}
+.mat-tab-label-active {
+  background: #252d47 !important;
+  color: white !important;
+  opacity: .6 !important;
+}
+ni-pagination {
+  md-select {
+    .mat-select-trigger {
+      min-width: 40px !important;
+    }
+  }
+}
+dialog-result {
+  .mat-dialog-actions {
+    padding: 0 20px 20px;
+  }
+}
+
+.mat-input-infix {
+  border: 0;
+  padding: 0;
+  padding-bottom: 0.4375rem;
+}
+
+md-select {
+  width: calc(100% - 20px);
+}
+
+dialog-remove {
+  text-align: center;
+}
+
+.btn-refresh {
+  cursor: pointer;
+}
+
+.btn-refresh:hover {
+  color: #406cfe;
+}
+
+.mat-tab-group {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+group-create {
+  p {
+    margin: 0;
+    span {
+      font-weight: bold;
+    }
+  }
+
+  .mat-dialog-actions {
+    padding: 0 24px 20px;
+  }
+}
+
+accept-reject-modal {
+  .mat-dialog-content {
+    margin: 0 !important;
+    padding-top: 30px;
+    .mat-dialog-actions {
+      margin: 0 !important;
+      padding: 20px 0 0;
+    }
+    p {
+      margin: 0;
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.mat-tooltip {
+  font-size: 14px !important;
+}

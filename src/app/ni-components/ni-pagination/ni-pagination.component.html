@@ -1,0 +1,12 @@
+<div>
+  <span>{{'Items per page' | translate}}: </span>
+  <md-select [(ngModel)]="itemPerPage" class="ml-2" (change)="changeItemsPerPage()">
+    <md-option *ngFor="let i of itemsPerPage" [value]="i">
+      {{ i }}
+    </md-option>
+  </md-select>
+  <span class="ml-4 mr-4" *ngIf="totalItems === 1">{{firstItem}} of {{totalItems}}</span>
+  <span class="ml-4 mr-4" *ngIf="totalItems !== 1">{{firstItem}} - {{lastItem}} of {{totalItems}}</span>
+  <button md-icon-button (click)="goPrev()"><md-icon>keyboard_arrow_left</md-icon></button>
+  <button md-icon-button (click)="goNext()"><md-icon>keyboard_arrow_right</md-icon></button>
+</div>
