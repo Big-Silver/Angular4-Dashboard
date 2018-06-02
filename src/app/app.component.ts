@@ -21,9 +21,6 @@ export class AppComponent {
   getLocation() {
       if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(res => {
-          // this.auth.getLocation(res.coords.latitude, res.coords.longitude).then(res => {
-          //   console.log(res);
-          // });
         });
       }
   }
